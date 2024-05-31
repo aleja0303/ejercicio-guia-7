@@ -1,0 +1,112 @@
+import javax.swing.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class CentralPrestamosApp extends JFrame {
+    private HashMap<String, Recurso> recursos;
+    private HashMap<String, Estudiante> estudiantes;
+    private JTextArea outputTextArea;
+    
+    public CentralPrestamosApp() {
+        super("Central de Préstamos - Universidad");
+        recursos = new HashMap<>();
+        estudiantes = new HashMap<>();
+        
+        // Configuración de la ventana
+        setSize(500, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Creación de componentes
+        outputTextArea = new JTextArea();
+        JScrollPane scrollPane = new JScrollPane(outputTextArea);
+        JButton agregarRecursoButton = new JButton("Agregar Recurso");
+        JButton agregarEstudianteButton = new JButton("Agregar Estudiante");
+        JButton prestarRecursoButton = new JButton("Prestar Recurso");
+        JButton consultarPrestamosButton = new JButton("Consultar Préstamos");
+        JButton consultarInformacionButton = new JButton("Consultar Información de Préstamo");
+        JButton devolverRecursoButton = new JButton("Devolver Recurso");
+        
+        // Configuración de layout
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(agregarRecursoButton);
+        buttonPanel.add(agregarEstudianteButton);
+        buttonPanel.add(prestarRecursoButton);
+        buttonPanel.add(consultarPrestamosButton);
+        buttonPanel.add(consultarInformacionButton);
+        buttonPanel.add(devolverRecursoButton);
+        
+        getContentPane().add(scrollPane, "Center");
+        getContentPane().add(buttonPanel, "South");
+        
+        // Manejadores de eventos
+        agregarRecursoButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Lógica para agregar un recurso
+            }
+        });
+        
+        agregarEstudianteButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Lógica para agregar un estudiante
+            }
+        });
+        
+        prestarRecursoButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Lógica para prestar un recurso
+            }
+        });
+        
+        consultarPrestamosButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Lógica para consultar préstamos de un estudiante
+            }
+        });
+        
+        consultarInformacionButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Lógica para consultar información de un préstamo específico
+            }
+        });
+        
+        devolverRecursoButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Lógica para devolver un recurso
+            }
+        });
+    }
+    
+    // Clase Recurso
+    private class Recurso {
+        private String codigo;
+        private String nombre;
+        private boolean disponible;
+        
+        public Recurso(String codigo, String nombre) {
+            this.codigo = codigo;
+            this.nombre = nombre;
+            this.disponible = true;
+        }
+    }
+    
+    // Clase Estudiante
+    private class Estudiante {
+        private String codigo;
+        private String nombre;
+        
+        public Estudiante(String codigo, String nombre) {
+            this.codigo = codigo;
+            this.nombre = nombre;
+        }
+    }
+    
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                CentralPrestamosApp app = new CentralPrestamosApp();
+                app.setVisible(true);
+            }
+        });
+    }
+}
